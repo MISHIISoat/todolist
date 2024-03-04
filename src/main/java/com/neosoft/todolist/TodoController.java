@@ -1,5 +1,6 @@
 package com.neosoft.todolist;
 
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,7 +24,7 @@ public class TodoController {
     }
 
     @PostMapping
-    ResponseEntity<URI> create(@RequestBody TodoList todoList) {
+    ResponseEntity<URI> create(@Valid @RequestBody TodoList todoList) {
         TodoList save = todoListRepository.save(todoList);
         URI uri = ServletUriComponentsBuilder.fromCurrentRequestUri()
                 .port(8080)

@@ -5,6 +5,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity(name = "todolist")
 public final class TodoList {
@@ -13,6 +14,7 @@ public final class TodoList {
     private Long id;
 
     @Column
+    @NotBlank
     private String name;
 
     public Long getId() {
